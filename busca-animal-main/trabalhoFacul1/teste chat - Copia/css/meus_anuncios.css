@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+.anuncio-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.anuncio-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+.anuncio-detalhes {
+    flex-grow: 1;
+}
+.anuncio-detalhes h3 {
+    margin: 0 0 10px;
+}
+.anuncio-detalhes p {
+    margin: 0;
+}
+
+.btn-encerrar {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-encerrar:hover {
+    background-color: #ff4949;
+}
+
+
+.excluir-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.excluir-btn:hover {
+    background-color: #e63939;
+}

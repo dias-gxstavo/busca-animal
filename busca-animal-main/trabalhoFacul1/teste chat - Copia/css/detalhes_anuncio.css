@@ -1,0 +1,23 @@
+.details-container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.details-container h2 {
+    text-align: center;
+}
+.details-container img {
+    width: 100%;
+    border-radius: 8px;
+}
+.details-container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+.details-container .dono-info {
+    font-weight: bold;
+    color: #555;
+}

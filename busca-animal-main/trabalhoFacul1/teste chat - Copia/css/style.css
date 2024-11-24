@@ -1,0 +1,850 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #344325ed; /* Verde escuro */
+    color: #FFFFFF; /* Texto branco no modo escuro */
+}
+
+body.light-mode {
+    background-color: #c4efc6; /* Cor de fundo para modo claro */
+    color: #333333; /* Cor do texto para modo claro */
+}
+
+body.light-mode {
+    background-color: #c4efc6; /* Cor de fundo para modo claro */
+    color: #333333; /* Cor do texto para modo claro */
+}
+
+/* Estilos do nav para mobile */
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: row; /* Muda para linha */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Espaça os itens */
+    gap: 2rem; /* Espaçamento entre os itens */
+}
+
+.nav-logo, footer .top .logo {
+    max-width: 135px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Exibe os links em coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    gap: 1rem; /* Espaçamento entre os links */
+}
+
+.nav-links #link1 {
+    padding: 1rem;
+    border: solid 1px #d5aa15;
+    border-radius: 5px;
+    color: white; /* Texto branco no modo escuro */
+    background-color: #344325; /* Fundo escuro */
+}
+
+/* Modo claro para o botão "Entrar" */
+body.light-mode .nav-links #link1 {
+    background-color: #133023; /* Fundo preto no modo claro */
+    color: #fff; /* Texto branco */
+    border: none;
+}
+
+.link a {
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: #fff;
+}
+
+.container-header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+ /* Estilos do Cabeçalho e Ícone de Perfil */
+.header-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+}
+
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+
+/* Estilos do header para mobile */
+header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna para mobile */
+    align-items: center;
+    gap: 3rem;
+}
+
+header .conteudo h1 {
+    color: #fff; /* Branco no modo escuro */
+    margin-bottom: 1rem;
+    font-size: 3rem; /* Tamanho reduzido para mobile */
+    font-weight: bold;
+    line-height: 5rem;
+}
+
+/* Modo claro para h1 */
+body.light-mode header .conteudo h1 {
+    color: #133023; /* Preto no modo claro */
+}
+
+header .conteudo h1 span {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+header .conteudo p {
+    margin-bottom: 2rem;
+    font-size: 18px;
+    text-align: justify;
+    color: #ccc; /* Cinza no modo escuro */
+}
+
+/* Modo claro para parágrafos */
+body.light-mode header .conteudo p {
+    color: #242a1a; /* Preto no modo claro */
+}
+
+header .image {
+    position: relative;
+}
+
+header .image img {
+    max-width: 100%; /* A imagem se ajusta à tela */
+}
+
+section .header {
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+/* Botões */
+.btn {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #344325; /* Verde escuro */
+    border: solid 1px #d5aa15;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+body.light-mode .btn {
+    background-color: #134A47;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    color: #ffffff;
+    border: solid 1px #e8ecea;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+body.light-mode .btn-inferior {
+    padding: 1rem 6rem;
+    font-size: 1rem;
+    color: #133023;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background-color: #F2D90C;
+    border: solid 1px #c99f3d57;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Bloco de Cards */
+.bloco-card {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna para mobile */
+    gap: 2rem;
+}
+
+.bloco-card .card {
+    background-color: #233b23; /* Verde mais escuro para os cards */
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    color: #FFFFFF; /* Texto branco nos cards */
+}
+
+/* Modo claro para os cards */
+body.light-mode .bloco-card .card {
+    background-color: #015034; /* Preto para os cards no modo claro */
+    color: #FFFFFF; /* Texto branco nos cards */
+}
+
+.bloco-card .card:hover {
+    border-color: #fff;
+    transition: ease 0.7s;
+}
+
+.bloco-card .card span {
+    display: inline-block;
+    background-color: #d5aa15; /* Amarelo para o ícone */
+    padding: 2px 9px;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.bloco-card .card h4 {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bloco-card .card p {
+    color: #ccc; /* Cinza no modo escuro */
+}
+
+/* Estilos de About para mobile */
+.about {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column; /* Exibe os elementos em coluna */
+    align-items: center; /* Centraliza os itens */
+}
+
+.about .esquerda img {
+    width: 100%; /* Ajusta a imagem à tela */
+    border-radius: 6px;
+}
+
+.about .direita h1 {
+    font-size: 41px; /* Tamanho reduzido para mobile */
+    font-weight: 700;
+    color: white;
+    line-height: 50px;
+    padding-top: 1rem;
+}
+
+/* Modo claro para h1 na seção About */
+body.light-mode .about .direita h1 {
+    color: #133023; /* Preto no modo claro */
+}
+
+.about .direita p {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 1rem;
+    color: #ccc; /* Cinza no modo escuro */
+}
+
+/* Modo claro para parágrafos na seção About */
+body.light-mode .about .direita p {
+    color: #133023; /* Preto no modo claro */
+}
+
+.btn-inferior {
+    padding: 1rem 6rem;
+    font-size: 1rem;
+    color: #233b23;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background-color: #d5aa15;
+    border: solid 1px #a57d21;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Estilos para o formulário */
+.container-form {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna para mobile */
+}
+
+.contact-form {
+    background-color: #E07A1C;
+    position: relative;
+}
+
+body.light-mode .contact-form{
+    background-color: #124B24;
+    position: relative;
+}
+
+form {
+    padding: 2.3rem 2.2rem;
+    z-index: 10;
+    overflow: hidden;
+    position: relative;
+}
+
+.title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1;
+    margin-bottom: 0.7rem;
+}
+
+.input-container {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.input {
+    width: 100%;
+    border: 2px solid #fafafa;
+    background: none;
+    padding: 1rem 1.2rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+textarea.input {
+    padding: 0.8rem 1.2rem;
+    min-height: 150px;
+    border-radius: 5px;
+    resize: none;
+    overflow-y: auto;
+}
+
+/* PROPRIEDADES NÃO-NATIVAS CSS QUE ALTERAM A COR DO PLACEHOLDER SEM AFETAR OUTROS VALORES. */
+::-webkit-input-placeholder {
+    color: white;
+}
+
+:-moz-placeholder {
+    color: white;
+}
+
+::-moz-placeholder {
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+.input-container.textarea label {
+    top: 1rem;
+    transform: translateY(0);
+}
+
+.btn-form {
+    padding: 1rem 6rem;
+    background-color: #02AD6D;
+    border: solid 1px #148717;
+    font-size: 0.95rem;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    line-height: 1;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.contact-info {
+    padding: 2.3rem 2.2rem;
+    position: relative;
+}
+
+.contact-info .bold {
+    color: #143A40;
+    font-weight: bold;
+}
+
+.contact-info .title {
+    color: #143A40;
+    font-size: 50px;
+}
+
+.text {
+    color: #333;
+    margin: 1.5rem 0 2rem 0;
+    font-size: 18px;
+}
+
+.information {
+    display: flex;
+    color: #555;
+    margin: 0.7rem 0;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.icon {
+    width: 28px;
+    margin-right: 0.7rem;
+}
+
+.square {
+    position: absolute;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(181%, 11%);
+    opacity: 0.2;
+}
+
+footer{
+    padding: 85px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .top a, footer .top li{
+    color: #ccc;
+    text-decoration: none;
+    list-style: none;
+}
+
+footer .top .social-links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+}
+
+footer .top ul{
+    display: flex;
+    gap: 40px;
+}
+
+footer .separator{
+    width: 100%;
+    height: 1px;
+    background-color: #282938;
+    margin: 30px 0 20px;
+}
+
+/* Modo claro para os links do footer */
+body.light-mode footer .coluna > a {
+    color: #000; /* Preto para os links no footer */
+}
+ 
+body.light-mode footer a {
+    color: #133023; /* Verde escuro no modo claro */
+}
+
+/* Modo claro para o h2 "OBJETIVOS & METAS" */
+body.light-mode h2.header {
+    color: #133023; /* Verde escuro no modo claro */
+}
+
+/* Media Queries para telas maiores */
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row; /* Exibe os itens em linha */
+        justify-content: space-between; /* Espaça os itens */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas para telas maiores */
+    }
+
+    header .conteudo h1 {
+        font-size: 5rem; /* Tamanho maior para telas grandes */
+    }
+
+    .bloco-card {
+        grid-template-columns: repeat(4, 1fr); /* Quatro colunas para telas grandes */
+    }
+
+    .about {
+        flex-direction: row; /* Coloca os elementos lado a lado */
+        gap: 60px; /* Espaçamento em telas grandes */
+    }
+
+    .form {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas para telas grandes */
+    }
+
+    footer .top ul{
+        gap: 20px;
+    }
+    footer .bottom{
+        flex-direction: column-reverse;
+        gap: 14px;
+    }
+
+}
+
+.modal {
+    display: none; /* O modal começa escondido */
+    position: fixed;
+    z-index: 1; /* Fica sobre o conteúdo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* Fundo escuro */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #444;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Estilos do switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Largura do botão */
+    height: 34px; /* Altura do botão */
+    margin-top: 0.5rem;
+}
+
+.switch input {
+    opacity: 0; /* Oculta o checkbox */
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Cor de fundo do botão */
+    transition: .4s;
+    border-radius: 34px; /* Bordas arredondadas */
+}
+
+/* O círculo dentro do botão */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* Altura do círculo */
+    width: 26px; /* Largura do círculo */
+    left: 4px; /* Posição inicial do círculo */
+    bottom: 4px; /* Posição inicial do círculo */
+    background-color: white; /* Cor do círculo */
+    transition: .4s;
+    border-radius: 50%; /* Torna o círculo redondo */
+}
+
+/* Quando o checkbox está ativado */
+input:checked + .slider {
+    background-color: #133023; /* Cor do botão quando ativado */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); /* Move o círculo para a direita */
+}
+
+/* Estilo para o Popup de Login */
+.popup-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro para o overlay */
+    z-index: 1000;
+}
+
+.popup-login .container {
+    background-color: #fff;
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-login .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+.popup-login .text {
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Campos de entrada do formulário */
+/* Estilo do Popup de Login */
+.popup-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro para o overlay */
+    z-index: 1000;
+}
+
+.popup-login .container {
+    background-color: #fff;
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-login .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+.popup-login .text {
+    font-size: 25px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos Campos de Entrada no Popup */
+.popup-login .data label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.popup-login .data input {
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.popup-login .data input:focus,
+.popup-login .data input:valid {
+    border-color: #E45B29; /* Igual ao formulário de cadastro */
+}
+
+/* Botão de Login Estilo Cadastro */
+.popup-login .popup-login-btn {
+    background-color: #344325; /* Verde escuro */
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    outline: none; /* Remove contorno adicional */
+    box-shadow: none; /* Remove sombra adicional */
+    appearance: none; /* Garante que o estilo do botão seja consistente */
+}
+
+body.light-mode .popup-login .popup-login-btn {
+    background-color: #c4efc6;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    outline: none; /* Remove contorno adicional */
+    box-shadow: none; /* Remove sombra adicional */}
+  
+
+
+
+.popup-login .forgot-pass a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.popup-login .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.popup-login .signup-link a {
+    color: orangered;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.popup-login .popup-login-btn:focus {
+    outline: none !important; /* Remove qualquer contorno de foco */
+    box-shadow: none !important; /* Remove qualquer sombra de foco */
+}
+
+
+
+

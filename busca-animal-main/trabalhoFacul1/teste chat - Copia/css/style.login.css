@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+img{
+    width: 100%;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #344325ed;
+}
+
+nav{
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.nav-logo{
+    max-width: 135px;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-links #link1{
+    padding: 1rem;
+    border: solid 1px #d5aa15;
+    border-radius: 5px;
+    color: white;
+}
+
+.link a{
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: #fff;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+.container-form {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-form {
+    background-color: #228D4D;
+    position: relative;
+  }
+   
+  form {
+    padding: 2.3rem 2.2rem;
+    z-index: 10;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1;
+    margin-bottom: 0.7rem;
+  }
+ 
+  .input-container {
+    position: relative;
+    margin: 1rem 0;
+  }
+  
+  .input {
+    width: 100%;
+    border: 2px solid #fafafa;
+    background: none;
+    padding: 2rem 1.2rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+  
+  
+  textarea.input {
+    padding: 0.8rem 1.2rem;
+    min-height: 150px;
+    border-radius: 5px;
+    resize: none;
+    overflow-y: auto;
+  }
+  
+/* PROPRIEDADES NÃO-CSS QUE ALTERAM A COR DO PLACEHOLDER SEM AFETAR OUTROS VALORES. */
+  ::-webkit-input-placeholder {
+    color: white;
+ }
+ 
+ :-moz-placeholder { 
+    color: white;  
+ }
+ 
+ ::-moz-placeholder {  
+    color: white;  
+ }
+ 
+ :-ms-input-placeholder {  
+    color: white;  
+ }
+
+  .input-container.textarea label {
+    top: 1rem;
+    transform: translateY(0);
+  }
+  
+  .btn-form {
+    padding: 1rem 6rem;
+    background-color: #CCBE43;
+    border: solid 1px #148717;
+    font-size: 0.95rem;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: #203A31;
+    line-height: 1;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+  }
+  
+  .contact-info {
+    padding: 2.3rem 2.2rem;
+    position: relative;
+  }
+    
+  .contact-info .bold {
+    color: #143A40;
+    font-weight: bold   ;
+}
+
+  .contact-info .title {
+    color: #143A40;
+    font-size: 50px;
+    padding-bottom: 3rem;
+    }
+  
+  .text {
+    color: #ffffff;
+    margin: 1.5rem 0 2rem 0;
+    font-size: 19px;
+  }
+
+  .text-hover{
+    color: #fff;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .text-hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+  
+  .text-hover:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  footer{
+    position: relative;
+    display: grid;
+    grid-template-columns: 400px repeat(3, 1fr);
+    gap: 5rem;
+    }
+
+    .footer-container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 6rem 2rem
+    }
+
+footer .coluna .logo{
+    max-width: 135px;
+    margin-bottom: 2rem;
+}
+
+footer .coluna p{
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+
+footer .coluna h4{
+    color: #fff;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+footer .coluna > a{
+    display: block;
+    color: #ccc;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
