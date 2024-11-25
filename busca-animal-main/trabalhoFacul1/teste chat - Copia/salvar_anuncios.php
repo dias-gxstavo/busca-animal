@@ -1,9 +1,6 @@
-
 <?php
-
 session_start();
 include ('lib/conexao.php'); // Arquivo de conexão ao banco de dados
-
 
 if (isset($_SESSION['usuario_id'])) {
     $usuario_id = $_SESSION['usuario_id'];
@@ -36,5 +33,4 @@ if (isset($_SESSION['usuario_id'])) {
     }
 } 
 
-$conn->close();
 ?>

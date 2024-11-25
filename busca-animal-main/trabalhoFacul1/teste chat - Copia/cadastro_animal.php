@@ -97,48 +97,61 @@
 
         const enderecoInput = document.getElementById('endereco');
         const suggestionsBox = document.getElementById('suggestions');
+        const latitudeInput = document.getElementById('latitude');
+        const longitudeInput = document.getElementById('longitude');
+        const cidadeInput = document.getElementById('cidade');
+        const ruaInput = document.getElementById('rua');
 
-        enderecoInput.addEventListener('input', function () {
-            const query = enderecoInput.value;
+    enderecoInput.addEventListener('input', function () {
+        const query = enderecoInput.value;
 
-            if (query.length > 2) {
-                fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?access_token=${MAPBOX_TOKEN}&autocomplete=true`)
-            .then(response => response.json())
-            .then(data => {
-                suggestionsBox.innerHTML = ''; // Limpa sugestões anteriores
+        if (query.length > 2) {
+            // Faz a requisição para a API de Geocodificação do Mapbox
+            fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?access_token=${MAPBOX_TOKEN}&autocomplete=true`)
+                .then(response => response.json())
+                .then(data => {
+                    // Limpa as sugestões anteriores
+                    suggestionsBox.innerHTML = '';
 
-                if (data.features && data.features.length) {
-                    data.features.forEach(feature => {
-                        // Busca os componentes desejados
-                        const rua = feature.text || ''; // Nome da rua
-                        const cidade = feature.context?.find(c => c.id.startsWith('place'))?.text || ''; // Cidade
+                    if (data.features && data.features.length) {
+                        data.features.forEach(feature => {
+                            const suggestion = document.createElement('div');
+                            suggestion.className = 'autocomplete-suggestion';
+                            suggestion.textContent = feature.place_name;
 
-                        // Cria o elemento de sugestão
-                        const suggestion = document.createElement('div');
-                        suggestion.className = 'autocomplete-suggestion';
-                        suggestion.textContent = `${rua}, ${cidade}`;
-                        suggestion.onclick = () => {
-                            enderecoInput.value = `${rua}, ${cidade}`; // Preenche o input
-                            document.getElementById('rua').value = rua; // Preenche o campo oculto da rua
-                            document.getElementById('cidade').value = cidade; // Preenche o campo oculto da cidade
-                            suggestionsBox.innerHTML = ''; // Limpa sugestões
-                        };
-                        suggestionsBox.appendChild(suggestion);
-                    });
-                }
-            })
-            .catch(error => console.error('Erro ao buscar sugestões:', error));
-    } else {
-        suggestionsBox.innerHTML = ''; // Limpa sugestões se o input for pequeno
-    }
-});
+                            // Ao clicar em uma sugestão, preenche o campo de endereço e os dados adicionais
+                            suggestion.onclick = () => {
+                                enderecoInput.value = feature.place_name;
+                                suggestionsBox.innerHTML = ''; // Limpa as sugestões
 
-        // Fecha as sugestões se o usuário clicar fora do input
-        document.addEventListener('click', function (event) {
-            if (!enderecoInput.contains(event.target)) {
-                suggestionsBox.innerHTML = '';
-            }
-        });
-</script> 
+                                // Extraindo dados
+                                const latitude = feature.center[1];
+                                const longitude = feature.center[0];
+                                const rua = feature.text;
+                                const cidade = feature.context.find(c => c.id.includes('place')).text;
+
+                                // Preenche os campos ocultos com os dados extraídos
+                                latitudeInput.value = latitude;
+                                longitudeInput.value = longitude;
+                                cidadeInput.value = cidade;
+                                ruaInput.value = rua;
+                            };
+                            suggestionsBox.appendChild(suggestion);
+                        });
+                    }
+                })
+                .catch(error => console.error('Erro ao buscar sugestões:', error));
+        } else {
+            suggestionsBox.innerHTML = ''; // Limpa as sugestões se o input for pequeno
+        }
+    });
+
+    // Fecha as sugestões se o usuário clicar fora do input
+    document.addEventListener('click', function (event) {
+        if (!enderecoInput.contains(event.target)) {
+            suggestionsBox.innerHTML = '';
+        }
+    });
+</script>
 </body>
 </html>

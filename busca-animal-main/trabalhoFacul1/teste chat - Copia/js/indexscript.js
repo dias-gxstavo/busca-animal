@@ -1,12 +1,12 @@
-$(document).ready(function() {
-    $('#toggleButton').change(function() {
-        $('body').toggleClass('light-mode'); // Alterna a classe light-mode no body
+$(document).ready(function () {
+    $('#toggleButton').click(function () {
+        $('body').toggleClass('light-mode'); // Alterna entre os modos
 
-        // Altera o texto do botão com base no estado atual
+        // Altera o atributo de acessibilidade
         if ($('body').hasClass('light-mode')) {
-            $('#toggleButton').attr('aria-label', 'Modo Escuro'); // Para acessibilidade
+            $('#toggleButton').attr('aria-label', 'Modo Escuro'); // Texto para modo claro ativo
         } else {
-            $('#toggleButton').attr('aria-label', 'Modo Claro'); // Para acessibilidade
+            $('#toggleButton').attr('aria-label', 'Modo Claro'); // Texto para modo escuro ativo
         }
     });
 });

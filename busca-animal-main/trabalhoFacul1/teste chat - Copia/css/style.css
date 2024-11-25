@@ -18,6 +18,43 @@ a {
     text-decoration: none;
 }
 
+/* Estilo para o botão fixo */
+#toggleButton {
+    position: fixed; /* Mantém o botão fixo ao rolar */
+    right: 20px; /* Distância da borda direita */
+    bottom: 20px; /* Distância da borda inferior */
+    width: 50px;
+    height: 50px;
+    background-color: #444444;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Estilo para o botão no modo claro */
+body.light-mode #toggleButton {
+    background-color: #f1f1f1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do ícone no botão (opcional, se quiser incluir um ícone) */
+#toggleButton::before {
+    content: '☀️'; /* Ícone padrão */
+    display: block;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* Acessibilidade: remove outline do botão ao focar */
+#toggleButton:focus {
+    outline: none;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #344325ed; /* Verde escuro */
@@ -53,7 +90,7 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    flex-direction: column; /* Exibe os links em coluna */
+    flex-direction: row; /* Exibe os links em coluna */
     align-items: flex-start; /* Alinha os itens à esquerda */
     gap: 1rem; /* Espaçamento entre os links */
 }
@@ -100,12 +137,66 @@ body.light-mode .nav-links #link1 {
     color: #fff;
 }
 
+/* Nav Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+
+.nav-item {
+    position: relative;
+    display: flex; /* Permite centralização */
+    align-items: center; /* Alinha verticalmente ao centro */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+/* Ajuste geral do dropdown */
+.nav-item .dropdown-menu {
+    position: absolute;
+    top: 100%; /* Posicionado logo abaixo do item pai */
+    right: 0; /* Alinha ao lado direito do ícone */
+    background-color: #fff; /* Cor de fundo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 10px 0; /* Espaçamento interno */
+    list-style: none; /* Remove os marcadores */
+    min-width: 150px; /* Largura mínima */
+    border-radius: 8px; /* Bordas arredondadas */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    display: none; /* Escondido por padrão */
+    overflow: hidden; /* Garante que o conteúdo do dropdown não vaze */
+}
+
+/* Mostra o dropdown quando o item pai está ativo */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Estilização dos links no dropdown */
+.nav-item .dropdown-menu li {
+    padding: 10px 15px; /* Espaçamento interno dos itens */
+    white-space: nowrap; /* Evita quebra de texto */
+}
+
+.nav-item .dropdown-menu li a {
+    color: #333; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block;
+}
+
+
 .profile-menu {
     position: relative;
-    display: inline-block;
 }
 
 .profile-icon {
+    color: #fff ;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -271,6 +362,8 @@ body.light-mode .bloco-card .card {
 .bloco-card .card p {
     color: #ccc; /* Cinza no modo escuro */
 }
+
+
 
 /* Estilos de About para mobile */
 .about {
@@ -525,6 +618,48 @@ body.light-mode h2.header {
     color: #133023; /* Verde escuro no modo claro */
 }
 
+body.light-mode .nav-link{
+    color:#000
+}
+
+body.light-mode .popup-login .popup-login-btn {
+    background-color: #c4efc6;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    outline: none; /* Remove contorno adicional */
+    box-shadow: none; /* Remove sombra adicional */}
+  
+.popup-login .forgot-pass a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.popup-login .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.popup-login .signup-link a {
+    color: orangered;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.popup-login .popup-login-btn:focus {
+    outline: none !important; /* Remove qualquer contorno de foco */
+    box-shadow: none !important; /* Remove qualquer sombra de foco */
+}
+
 /* Media Queries para telas maiores */
 @media (min-width: 768px) {
     nav {
@@ -533,7 +668,7 @@ body.light-mode h2.header {
     }
 
     .nav-links {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -568,283 +703,12 @@ body.light-mode h2.header {
 
 }
 
-.modal {
-    display: none; /* O modal começa escondido */
-    position: fixed;
-    z-index: 1; /* Fica sobre o conteúdo */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4); /* Fundo escuro */
+/* Centralização extra para telas menores */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: row;
+        gap: 6px;
+    }
 }
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-}
-
-.modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.modal-content button {
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal-content button:hover {
-    background-color: #444;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    color: #aaa;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-}
-
-.error {
-    color: red;
-    margin-bottom: 10px;
-}
-
-/* Estilos do switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px; /* Largura do botão */
-    height: 34px; /* Altura do botão */
-    margin-top: 0.5rem;
-}
-
-.switch input {
-    opacity: 0; /* Oculta o checkbox */
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc; /* Cor de fundo do botão */
-    transition: .4s;
-    border-radius: 34px; /* Bordas arredondadas */
-}
-
-/* O círculo dentro do botão */
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px; /* Altura do círculo */
-    width: 26px; /* Largura do círculo */
-    left: 4px; /* Posição inicial do círculo */
-    bottom: 4px; /* Posição inicial do círculo */
-    background-color: white; /* Cor do círculo */
-    transition: .4s;
-    border-radius: 50%; /* Torna o círculo redondo */
-}
-
-/* Quando o checkbox está ativado */
-input:checked + .slider {
-    background-color: #133023; /* Cor do botão quando ativado */
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px); /* Move o círculo para a direita */
-}
-
-/* Estilo para o Popup de Login */
-.popup-login {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6); /* Fundo escuro para o overlay */
-    z-index: 1000;
-}
-
-.popup-login .container {
-    background-color: #fff;
-    width: 400px;
-    max-width: 90%;
-    padding: 25px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    text-align: center;
-    position: relative;
-}
-
-.popup-login .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
-    color: #333;
-    cursor: pointer;
-}
-
-.popup-login .text {
-    font-size: 22px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Campos de entrada do formulário */
-/* Estilo do Popup de Login */
-.popup-login {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6); /* Fundo escuro para o overlay */
-    z-index: 1000;
-}
-
-.popup-login .container {
-    background-color: #fff;
-    width: 400px;
-    max-width: 90%;
-    padding: 25px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    text-align: center;
-    position: relative;
-}
-
-.popup-login .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
-    color: #333;
-    cursor: pointer;
-}
-
-.popup-login .text {
-    font-size: 25px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Estilo dos Campos de Entrada no Popup */
-.popup-login .data label {
-    font-size: 14px;
-    color: #333;
-    text-align: left;
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.popup-login .data input {
-    width: 100%;
-    height: 45px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-}
-
-.popup-login .data input:focus,
-.popup-login .data input:valid {
-    border-color: #E45B29; /* Igual ao formulário de cadastro */
-}
-
-/* Botão de Login Estilo Cadastro */
-.popup-login .popup-login-btn {
-    background-color: #344325; /* Verde escuro */
-    color: #fff;
-    padding: 10px 0;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s;
-    outline: none; /* Remove contorno adicional */
-    box-shadow: none; /* Remove sombra adicional */
-    appearance: none; /* Garante que o estilo do botão seja consistente */
-}
-
-body.light-mode .popup-login .popup-login-btn {
-    background-color: #c4efc6;
-    color: #fff;
-    padding: 10px 0;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s;
-    outline: none; /* Remove contorno adicional */
-    box-shadow: none; /* Remove sombra adicional */}
-  
-
-
-
-.popup-login .forgot-pass a {
-    color: #3498db;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.popup-login .signup-link {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-    font-size: 14px;
-}
-
-.popup-login .signup-link a {
-    color: orangered;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.popup-login .popup-login-btn:focus {
-    outline: none !important; /* Remove qualquer contorno de foco */
-    box-shadow: none !important; /* Remove qualquer sombra de foco */
-}
-
-
 
 
