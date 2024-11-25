@@ -23,9 +23,37 @@ include ('lib/conexao.php');
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../teste chat - Copia/js/indexscript.js"></script>
+    <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' />
+    <script src='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js'></script>
+    <style>
+        #map {             
+            height: 500px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+
+        }
+
+        .maplibregl-popup-content {
+            color: black; /* Altera a cor da fonte para preto */
+            font-size: 14px; /* Ajusta o tamanho da fonte */
+            font-weight: bold; /* Torna a fonte em negrito */
+        }
+    
+    </style>
 </head>
 
 <body>
+<style>
+    .marker {
+        display: block;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+    }
+</style>
+
     <button id="toggleButton" aria-label="Modo Claro"></button>
     <nav>   
         <div class="nav-logo">
@@ -137,7 +165,23 @@ include ('lib/conexao.php');
             </div>
         </div>
     </section>
-
+     
+    <div class="container">
+        <h2> Busque apoio em ONGs próximas a você!</h2>
+    </div>
+    <div id="map"></div>
+   
+    <script>
+        const map = new maplibregl.Map({
+            container: "map",
+            style: "https://api.maptiler.com/maps/basic-v2/style.json?key=LircVPKHkODBtZ02mH3o",
+            center: [-43.1729, -22.9068], // Centraliza o mapa para o Rio de Janeiro 
+            zoom: 10,
+        });
+    </script>
+    <script src="js/mapa.js"></script>
+    
+    
     <section class="container">
         <div class="about" id="about">
             <div class="esquerda">
