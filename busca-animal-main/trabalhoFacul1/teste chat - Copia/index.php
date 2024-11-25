@@ -22,11 +22,11 @@ include ('lib/conexao.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../teste chat - Copia//js/indexscript.js"></script>
+    <script src="../teste chat - Copia/js/indexscript.js"></script>
 </head>
 
 <body>
-    
+    <button id="toggleButton" aria-label="Modo Claro"></button>
     <nav>   
         <div class="nav-logo">
             <a href="index.php">
@@ -35,10 +35,21 @@ include ('lib/conexao.php');
         </div>
 
     <div class="header-icon">
-
         <!-- Verifica se o usuário está logado para exibir o ícone de perfil -->
             <div>
                 <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <ul class="nav-menu">
+                    <!-- Menus -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link"> Anúncios▼ <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <a href="meus_anuncios.php">Meus Anúncios</a>
+                            <li><a href="lista.php">Buscar pets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" onclick="scrollToSection('contato')"> Contate-nos▼ <i class="fas fa-chevron-down"></i></a>
+                    </li>
                     <!-- Ícone de perfil com menu suspenso para usuário logado -->
                     <div class="profile-menu">
                     <img width="50" height="50" src="../teste chat - Copia/imagens/profile-round-1346-svgrepo-com.svg" alt="user-male-circle" alt="Perfil" class="profile-icon" onclick="toggleMenu()">
@@ -46,7 +57,6 @@ include ('lib/conexao.php');
                             <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
                                 <li><a href="admin_dashboard.php">Dashboard</a></li>
                             <?php endif; ?>
-                            <a href="meus_anuncios.php">Meus Anúncios</a>
                             <a href="resetar_senha.php">Redefinir senha</a>
                             <a href="logout.php">Logout</a>
                         </div>
@@ -54,7 +64,6 @@ include ('lib/conexao.php');
                 <?php else: ?>
                     <!-- Botões de Login e Cadastro para visitantes -->
                     <div class="auth-buttons">
-
                         <ul class="nav-links">
                             <li id="link1" class="link"> 
                                 <a onclick="window.location.href='cadastro_usuario.php'">CADASTRE-SE</a> 
@@ -63,19 +72,11 @@ include ('lib/conexao.php');
 
                             <li id="link1" class="link"> 
                                 <a onclick="window.location.href='login.php'"> LOGIN</a> 
-                                <i class="ri-user-line"></i>
                             </li>
-
+                    <?php endif; ?>
                         </ul>
                     </div>
-                <?php endif; ?>
             </div>
-
-              <!-- Toggle Switch -->
-              <label class="switch">
-                    <input type="checkbox" id="toggleButton">
-                    <span class="slider"></span> 
-                </label>
     </div>
 
     </nav>
@@ -137,7 +138,6 @@ include ('lib/conexao.php');
         </div>
     </section>
 
-
     <section class="container">
         <div class="about" id="about">
             <div class="esquerda">
@@ -178,7 +178,7 @@ include ('lib/conexao.php');
   
           <div class="contact-form">
           
-            <form action="lib/form_contato.php" method="POST">
+            <form action="lib/form_contato.php" id="contato"  method="POST">
               <h3 class="title">Fale conosco</h3>
               <div class="input-container">
                 <input type="text" name="nome" class="input" placeholder="Nome" required>
@@ -263,6 +263,15 @@ include ('lib/conexao.php');
 </div>
 
 <script>
+
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.scrollIntoView({
+            behavior: 'smooth', // Rola suavemente
+            block: 'start'      // Alinha a seção no topo
+        });
+    }
+
     // Função para exibir ou ocultar o menu suspenso
     function toggleMenu() {
         var menu = document.getElementById("dropdown-menu");
@@ -277,7 +286,6 @@ include ('lib/conexao.php');
         }
     }
 </script>
-
 </body>
 </html>
    

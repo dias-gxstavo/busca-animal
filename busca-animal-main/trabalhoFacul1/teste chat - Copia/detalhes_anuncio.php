@@ -32,6 +32,9 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Detalhes do Anúncio</title>
     <link rel="stylesheet" href="../teste chat - Copia/css/detalhes_anuncio.css">
 </head>
@@ -47,8 +50,7 @@ if (isset($_GET['id'])) {
         <p><strong>Descrição:</strong> <?php echo htmlspecialchars($anuncio['descricao']); ?></p>
         <p><strong>Data Perdido:</strong> <?php echo htmlspecialchars($anuncio['data_perdido']); ?></p>
         <p><strong>Endereço:</strong> <?php echo htmlspecialchars($anuncio['endereco']); ?></p>
-        <p class="dono-info"><strong>Número para contato:</strong> <?php echo htmlspecialchars($anuncio['dono_contato']); ?></p>
-        <p class="dono-info"><strong>Nome do Dono:</strong> <?php echo htmlspecialchars($anuncio['dono_nome']); ?></p>
+        <p><strong>Número para contato:</strong> <?php echo htmlspecialchars($anuncio['dono_contato']); ?></p>    
     </div>
 
 
