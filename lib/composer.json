@@ -1,0 +1,14 @@
+{
+    "name": "busca_animal/composer",
+    "description": "phpmailer",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "BuscaAnimal\\Composer\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    }
+}

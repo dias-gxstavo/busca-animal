@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+ 
+    font-family: 'Roboto','Poppins', sans-serif;
+}
+
+#logo-arrow-container {
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #site-logo {
+    height: 85px; /* Tamanho padrão para desktops */
+  }
+  
+  #back-arrow {
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  
+  /* Responsividade: telas pequenas */
+  @media screen and (max-width: 768px) {
+    #logo-arrow-container {
+      top: 5px; /* Diminui a margem superior */
+      left: 5px; /* Diminui a margem esquerda */
+    }
+  
+    #site-logo {
+      height: 40px; /* Reduz o tamanho da logo */
+    }
+  
+    #back-arrow {
+      font-size: 20px; /* Reduz o tamanho da seta */
+      padding: 6px; /* Ajusta o preenchimento */
+    }
+  }
+  
+  /* Responsividade: telas muito pequenas (smartphones) */
+  @media screen and (max-width: 480px) {
+    #site-logo {
+      height: 35px; /* Tamanho menor para telas muito pequenas */
+    }
+  
+    #back-arrow {
+      font-size: 18px;
+      padding: 4px;
+    }
+  }
+
+
+
+.container {
+    background-color: #eeeeee;
+    width: 100%;
+    margin: 0px auto;
+    padding: 40px;
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.anuncio-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid ;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.anuncio-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.anuncio-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.anuncio-detalhes {
+    flex-grow: 1;
+}
+
+.anuncio-detalhes h3 {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: #344325;
+}
+
+.anuncio-detalhes p {
+    margin: 0;
+    color: #555555; 
+}
+
+.excluir-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.excluir-btn:hover {
+    background-color: #e63939;
+    transform: translateY(-2px); 
+}
+
