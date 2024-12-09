@@ -58,7 +58,8 @@ $result = $stmt->get_result();
         <a id="back-arrow" href="javascript:history.back();">&#8592;</a>
     </div>
     
-<div class="container">
+    <img src="../busca-animal-master/imagens/undraw_dog_c7i6.svg" class="corner-imagens" alt=""><div class="coner">
+        <img src="../busca-animal-master/imagens/undraw_everyday_life_re_1lfb.svg" alt="" class="corner-imagens-2"><div class="coner-2">
     
     <h2> Anúncios ativos:</h2>
 
